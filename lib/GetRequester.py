@@ -1,13 +1,15 @@
+# lib/GetRequester.py
+
 import requests
-import json
 
 class GetRequester:
-
     def __init__(self, url):
         self.url = url
 
     def get_response_body(self):
-        pass
+        response = requests.get(self.url)
+        return response.content  # raw body (bytes)
 
     def load_json(self):
-        pass
+        response = requests.get(self.url)
+        return response.json()  # parsed Python dict/list
